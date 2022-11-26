@@ -12,12 +12,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleRegis.css">
     <link rel="src" href="js/script.js">
+    <link rel="icon" href="img/logo_Orddo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
     <title>ORDDO | Registro de usuario</title>
 </head>
 <body>
+
+    <?php
+        session_start();
+        if(!isset($_SESSION["usuario"])){
+            header("location:index.php");
+        }
+    ?>
 
     <div class="conteiner">
 
@@ -26,7 +34,7 @@
             <p class="title">Registro</p>
 
             <label>
-                <input placeholder="nombre" type="text" id="nombre" name="nombre" min="5" maxlength="30">
+                <input placeholder="nombre" type="text" id="nombre" name="nombre" min="3" maxlength="30">
             </label>
             <label>
                 <input placeholder="email" type="email" id="email" name="email" required="@" min="5" maxlength="30">

@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/logo_Orddo.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,12 +29,11 @@
             <label>
                 <input placeholder="contraseña" type="password" id="password" name="password" min="5" maxlength="30">
             </label>
-            <div class="iper">
-                <a href="registerUser.php">Restablecer contraseña</a><a href="registerUser.php">Registrarse</a>
-            </div>
             <button id="button" name="btnIngresar">
                 Ingresar
             </button>
+
+            <p name="warning"></p>
         </form>
     </div>
 

@@ -14,6 +14,8 @@ $telefono = $_POST['telefono'];
 $email = $_POST['email'];
 $cargo = $_POST['cargo'];
 
+$warning = $_GET['warning'];
+
 /*
 //iniciar sesion
 if (isset($_POST['btnIngresar'])) {
@@ -63,11 +65,9 @@ function desencrypt($string, $key){
     return $result;
 }
 
-
 //registro
 if (isset($_POST['btnRegistrar'])) {
-    $resultEncrypt = encrypt($user,$password);
-    $sqlgrabar = "INSERT INTO usuarios(UsuUsuario,UsuPassword) values('$user', '$resultEncrypt')";
+    $sqlgrabar = "INSERT INTO usuarios(UsuUsuario,UsuPassword) values('$user', '$password')";
     $sqlgrabar2 = "INSERT INTO empleados(EmDocumento, EmNombre, EmApellido, EmTelefono, EmEmail, EmCargo) VALUES ('$documento', '$nombre','$apelldio','$telefono','$email','$cargo')";
     if (mysqli_query($conexion,$sqlgrabar)) {
         echo "<script> alert('Usuario registrado: $user'); window.location='./index.php' </script>";
@@ -77,20 +77,26 @@ if (isset($_POST['btnRegistrar'])) {
     if(mysqli_query($conexion,$sqlgrabar2)){
         echo "<script> alert('Nombre: $nombre');</script>";
     }else{
-        echo "Erro en empleados";
+        echo "Error en empleados";
     }
 }
+
 //inicio sesion
 if (isset($_POST['btnIngresar'])) {
-    $resultdesEncrypt = desencrypt($user,$password);
-    $query = mysqli_query($conexion,"SELECT * FROM usuarios where UsuUsuario = '$user' and UsuPassword = '$password'");
-    $nr = mysqli_num_rows($query);
-    if ($nr == 1) {
-        echo "<script> alert('Bienvenido $user'); window.location='../inicio.html' </script>";
-    }else{
-        echo "<script> alert('Usuario no existe'); window.location='../index.php' </script>";
-    }
 
+    if ($user == "" || $password == ""){
+        echo "<script> alert('Existen campos vacios'); window.location='../index.php' </script>";
+    }else{
+        $query = mysqli_query($conexion,"SELECT * FROM usuarios where UsuUsuario = '$user' and UsuPassword = '$password'");
+        $nr = mysqli_num_rows($query);
+        if ($nr == 1) {
+            session_start();
+            $_SESSION["usuario"]=$_POST["usuario"];
+            echo "<script> alert('Bienvenido $user'); window.location='../inicio.html' </script>";
+        }else{
+            echo "<script> alert('Usuario o contraseña incorrecta'); window.location='../index.php' </script>";
+        }
+    }
 }
 /*
 if(isset($_POST['btnIngresar'])){
