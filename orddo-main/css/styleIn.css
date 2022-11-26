@@ -16,8 +16,18 @@ form{
     border-radius: 5px;
     width: 250px;
 }
-form a{
+.res{
     color: #FFFFFF;
+    border: none;
+    border-radius: 3px;
+    background-color: #EA7C4B;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.cer{
+    color: #FFFFFF;
+    margin: 5px;
     border: none;
     border-radius: 3px;
     background-color: #EA7C4B;
