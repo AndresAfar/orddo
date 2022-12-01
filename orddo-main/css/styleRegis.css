@@ -12,7 +12,7 @@ body{
 }
 
 form{
-    
+    margin-top: 50px;
     flex-direction: column;
     background-color: #C9BDBC;
     text-align: center;
@@ -76,4 +76,7 @@ form button{
 }
 a{
     color: #FFFFFF;
+}
+.btnRegresar a{
+    text-decoration: none;
 }

@@ -37,7 +37,7 @@
                 <input placeholder="nombre" type="text" id="nombre" name="nombre" min="3" maxlength="30">
             </label>
             <label>
-                <input placeholder="email" type="email" id="email" name="email" required="@" min="5" maxlength="30">
+                <input placeholder="email" type="text" id="email" name="email" min="0" maxlength="30">
             </label><br>
             <label>
                 <input placeholder="apellido" type="text" id="apellido" name="apellido" min="5" maxlength="30">
@@ -65,7 +65,10 @@
                 <a href="index.php">ya tengo una cuenta</a>
             </div>
             <button id="buttonRes" name="btnRegistrar">
-                Registrarse
+                Registrar
+            </button>
+            <button id="buttonRes" class="btnRegresar"name="btnRegresar">
+                <a href="inicio.php">Regresar</a>
             </button>
         </form>
 

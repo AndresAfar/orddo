@@ -70,7 +70,7 @@ if (isset($_POST['btnRegistrar'])) {
     $sqlgrabar = "INSERT INTO usuarios(UsuUsuario,UsuPassword) values('$user', '$password')";
     $sqlgrabar2 = "INSERT INTO empleados(EmDocumento, EmNombre, EmApellido, EmTelefono, EmEmail, EmCargo) VALUES ('$documento', '$nombre','$apelldio','$telefono','$email','$cargo')";
     if (mysqli_query($conexion,$sqlgrabar)) {
-        echo "<script> alert('Usuario registrado: $user'); window.location='./index.php' </script>";
+        echo "<script> alert('Usuario registrado: $user'); window.location='./registerUser.php' </script>";
     }else{
         echo "Error: ";
     }
@@ -92,7 +92,7 @@ if (isset($_POST['btnIngresar'])) {
         if ($nr == 1) {
             session_start();
             $_SESSION["usuario"]=$_POST["usuario"];
-            echo "<script> alert('Bienvenido $user'); window.location='../inicio.html' </script>";
+            echo "<script> alert('Bienvenido $user'); window.location='../inicio.php' </script>";
         }else{
             echo "<script> alert('Usuario o contraseña incorrecta'); window.location='../index.php' </script>";
         }
